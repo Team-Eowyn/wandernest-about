@@ -1,4 +1,4 @@
-const {Hotel} = require('./index.js');
+const {Hotel} = require('./models/index.js');
 const faker = require('faker');
 
 //script for dowloading 100 images: now all moved to AWS
@@ -106,7 +106,7 @@ var seed = () => {
       id: i,
       name: faker.company.companyName(),
       description: faker.lorem.paragraph(),
-      averageReview: Math.ceil(Math.random() * 5), //refactor to include decimals?
+      averageReview: (Math.random() * 5).toFixed(1),
       numReviews: Math.floor(Math.random() * 2500),
       class: Math.ceil(Math.random() * 5),
       link: faker.internet.url(),
