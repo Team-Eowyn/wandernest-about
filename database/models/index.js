@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
-//set up these options to avoid deprecation warnings
-mongoose.connect('mongodb://localhost/about', { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true } );
-const Schema = mongoose.Schema;
-const model = mongoose.model;
+// set up these options to avoid deprecation warnings
+mongoose.connect('mongodb://localhost/about', { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
+const { Schema } = mongoose;
+const { model } = mongoose;
 
-var hotelSchema = Schema ({
+const hotelSchema = Schema({
   id: {
     type: Number,
-    unique: true,
+    unique: true
   },
   name: String,
   description: String,
@@ -17,7 +17,8 @@ var hotelSchema = Schema ({
   link: String,
   propertyAmenities: [{
     type: String
-    // ,icon: String --> unsure yet if to store icons in database, or later just link to them through css like tripadvisor does
+    // ,icon: String
+    // unsure if store icons in db, or later link to them through css like tripadvisor does
   }],
   roomFeatures: [{
     type: String
@@ -41,7 +42,6 @@ var hotelSchema = Schema ({
 //   })
 // );
 
-var Hotel = model('Hotel', hotelSchema);
+const Hotel = model('Hotel', hotelSchema);
 
-module.exports = {Hotel};  //export mongoose.connection?
-
+module.exports = { Hotel }; // export mongoose.connection?

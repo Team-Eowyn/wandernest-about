@@ -2,13 +2,13 @@ const express = require('express');
 // const bodyParser = require('body-parser');
 
 const app = express();
-const {Hotel} = require('../database/models/index.js');
+// const { Hotel } = require('../database/models/index.js');
 const controller = require('../database/controllers/index.js');
 
-//later serve up client files using express.static
+// later serve up client files using express.static
 
-//middleware:
-//parse incoming request bodies before handlers (so they're not empty):
+// middleware:
+// parse incoming request bodies before handlers (so they're not empty):
 // app.use(bodyParser.join());
 // app.use(bodyParser.urlencoded({
 //   extended: true
@@ -19,19 +19,18 @@ const controller = require('../database/controllers/index.js');
 
 app.get('/about/:id', (req, res) => {
   controller.getById(req.params.id)
-    .then( hotel => {
+    .then((hotel) => {
       res.send(hotel);
     })
-    .catch( err => {
+    .catch((err) => {
       console.log(err);
       res.sendStatus(404);
-    })
-})
+    });
+});
 
 
+const port = 3003;
 
-let port = 3003;
-
-app.listen(port, function() {
+app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
