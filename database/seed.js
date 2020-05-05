@@ -44,7 +44,7 @@ const hotelPropertyAmenities = [ // 20 --> pick 10
   'Sun terrace',
   'Private check-in / check-out',
   'Dry cleaning',
-  'Laundry service',
+  'Laundry service'
 ];
 
 const hotelRoomFeatures = [ // 10 --> pick 5
@@ -57,14 +57,14 @@ const hotelRoomFeatures = [ // 10 --> pick 5
   'Refrigerator',
   'Flatscreen TV',
   'Laptop safe',
-  'Wake-up service / alarm clock',
+  'Wake-up service / alarm clock'
 ];
 
 const hotelRoomTypes = [ // 4 --> pick 2
   'Non-smoking rooms',
   'Suites',
   'Ocean view',
-  'Family rooms',
+  'Family rooms'
 ];
 
 // faker.seed(123);
@@ -112,7 +112,7 @@ const seed = () => {
       propertyAmenities: amenities,
       roomFeatures: features,
       roomTypes: types,
-      photos,
+      photos
     });
     // mongodb save is deprecated, but use for now. return Promise if no cb
     newHotel.save((err, newHotel) => {
