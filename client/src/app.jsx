@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import styled from 'styled-components';
-//import child components:
-import GlobalFonts from './fonts/fonts.jsx';
+
+import GlobalFonts from './fonts/fonts.js';
+import GlobalStyle from './styledComponents/GlobalStyle.js';
 import About from './components/About.jsx';
 
 class App extends React.Component {
@@ -17,6 +18,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <GlobalStyle />
         <GlobalFonts />
         <About />
       </div>
