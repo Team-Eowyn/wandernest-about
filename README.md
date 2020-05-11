@@ -19,6 +19,8 @@
 
 > Some usage instructions
 
+npm run build to bundle your application
+
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
@@ -36,4 +38,5 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
+
 
