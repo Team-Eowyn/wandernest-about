@@ -35,7 +35,7 @@ const hotelPropertyAmenities = [ // 20 --> pick 10
   'Business Center with Internet Access',
   'Parking',
   'Wifi',
-  'Complimentary instant cofffee',
+  'Complimentary instant coffee',
   'Poolside bar',
   'Rooftop bar',
   'Baggage storage',

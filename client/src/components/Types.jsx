@@ -1,14 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 import Title from '../styledComponents/Title.js';
+import Icon from '../styledComponents/Icons.js';
 
 const TypesContainer = styled.div`
   grid-column: 1 / 3;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
   padding: 10px 0 18px;
   border-bottom: 1px solid #e0e0e0;
+  justify-content: space-between;
+`;
+
+//grid-template-rows: 1fr;
+const LeftColumn = styled.div`
+  grid-column: 1 / 2;
+  display: grid;
+`;
+
+const RightColumn = styled.div`
+  grid-column: 2 / 3;
+  display: grid;
 `;
 
 const MoreLink = styled.a`
@@ -18,15 +30,16 @@ const MoreLink = styled.a`
 `;
 
 class Types extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
     return (
       <TypesContainer>
         <Title>Room types</Title>
+        <LeftColumn>
+          <Icon type='roomTypes' title='Suites'/>
+        </LeftColumn>
+        <RightColumn>
+          <Icon type='roomTypes' title='Ocean view'/>
+        </RightColumn>
         <MoreLink>Show more room details</MoreLink>
       </TypesContainer>
     );
