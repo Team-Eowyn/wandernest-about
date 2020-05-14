@@ -63,12 +63,26 @@ class Icon extends React.Component {
     super(props);
     this.state = {
       name: props.name,
-      icon: propertyAmenities['Free parking'] //default value, later changed in findType
+      icon: propertyAmenities['Free parking'], //default value, later changed in findType
+      show: false,
+      index: null
     };
   }
 
   componentDidMount() {
     this.findType(this.props);
+    this.setState({
+      show: this.props.clicked,
+      index: this.props.index
+    })
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.clicked != prevProps.clicked) {
+      this.setState({
+        show: this.props.clicked
+      });
+    }
   }
 
   findType(props) {
@@ -91,17 +105,23 @@ class Icon extends React.Component {
     const IconContainer = styled.div`
       grid-row-end: span 1;
       align-self: center;
+      display: ${props => props.show || props.index < 3 ? 'block' : 'none'};
     `;
+    //display: ${props => props.show ? 'block' : 'none'};
+
+
     const StyledIcon = styled(this.state.icon)`
       color: #4a4a4a;
+      padding-right: 5px;
     `;
     const IconName = styled.span`
       font-family: 'LatoRegular';
       font-size: 14px;
       color: #4a4a4a;
     `;
+
     return (
-      <IconContainer>
+      <IconContainer show={this.state.show} index={this.state.index}>
         <StyledIcon size='20px' />
         <IconName>{this.state.name}</IconName>
       </IconContainer>

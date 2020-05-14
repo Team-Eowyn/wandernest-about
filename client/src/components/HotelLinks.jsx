@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Title from '../styledComponents/Title.js';
+import WebsiteLink from '../styledComponents/WebsiteLink.js';
 import {Web} from 'styled-icons/foundation';
 import {DiagonalArrowRightUp} from 'styled-icons/evaicons-solid';
-// @styled-icons/evaicons-outline/DiagonalArrowRightUpOutline
 
 const LinkContainer = styled.div`
   grid-column: 1 / 3;
@@ -14,11 +14,6 @@ const HotelWebsite = styled.div`
   align-items: center
 `;
 const LinkIcon = styled(Web)`
-  color: #4a4a4a;
-`;
-const Link = styled.span`
-  font-family: 'LatoRegular';
-  font-size: 14px;
   color: #4a4a4a;
 `;
 const ArrowIcon = styled(DiagonalArrowRightUp)`
@@ -39,7 +34,7 @@ class HotelLinks extends React.Component {
         <Title>Hotel links</Title>
         <HotelWebsite>
           <LinkIcon size='20px' />
-          <Link>Visit hotel website</Link>
+          <WebsiteLink link={this.state.link}/>
           <ArrowIcon size='20px' />
         </HotelWebsite>
       </LinkContainer>

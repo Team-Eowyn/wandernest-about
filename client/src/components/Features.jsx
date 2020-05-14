@@ -15,13 +15,13 @@ const FeaturesContainer = styled.div`
 const LeftColumn = styled.div`
   grid-column: 1 / 2;
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  row-gap: 10px;
 `;
 
 const RightColumn = styled.div`
   grid-column: 2 / 3;
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  row-gap: 10px;
 `;
 
 class Features extends React.Component {
@@ -38,10 +38,11 @@ class Features extends React.Component {
       <FeaturesContainer>
         <Title>Room features</Title>
         <LeftColumn>
-          {leftIcons.map(name => <Icon type='roomFeatures' name={name} key ={name} />)}
+          {leftIcons.map( (name, index) => <Icon key={name} type='roomFeatures' name={name} clicked={this.state.clicked} index={index} />)}
         </LeftColumn>
         <RightColumn>
-          {rightIcons.map(name => <Icon type='roomFeatures' name={name} key ={name} />)}
+          {/* {rightIcons.map(name => <Icon type='roomFeatures' name={name} key ={name} />)} */}
+          {rightIcons.map( (name, index) => <Icon key={name} type='roomFeatures' name={name} clicked={this.state.clicked} index={index} />)}
         </RightColumn>
         <MoreLink>Show more</MoreLink>
       </FeaturesContainer>

@@ -6,4 +6,8 @@ export default styled.a`
   padding: 10px 0 0;
   font-family: 'LatoBold';
   font-size: 14px;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `;
