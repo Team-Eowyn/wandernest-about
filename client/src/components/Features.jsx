@@ -25,18 +25,23 @@ const RightColumn = styled.div`
 `;
 
 class Features extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      features: props.features
+    };
+  }
   render() {
+    var leftIcons = this.state.features.slice(0, 3);
+    var rightIcons = this.state.features.slice(3);
     return (
       <FeaturesContainer>
         <Title>Room features</Title>
         <LeftColumn>
-          <Icon type='roomFeatures' title='Air conditioning'/>
-          <Icon type='roomFeatures' title='Housekeeping'/>
-          {/* <Icon type='roomFeatures' title='Private balcony'/> */}
+          {leftIcons.map(name => <Icon type='roomFeatures' name={name} key ={name} />)}
         </LeftColumn>
         <RightColumn>
-          <Icon type='roomFeatures' title='Safe'/>
-          <Icon type='roomFeatures' title='Sofa'/>
+          {rightIcons.map(name => <Icon type='roomFeatures' name={name} key ={name} />)}
         </RightColumn>
         <MoreLink>Show more</MoreLink>
       </FeaturesContainer>

@@ -3,7 +3,9 @@ import React from 'react';
 class Pictures extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      links: this.props.links
+    };
   }
 
   render() {

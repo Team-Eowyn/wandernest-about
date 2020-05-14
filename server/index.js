@@ -31,6 +31,8 @@ app.get('/about/:id', (req, res) => {
     });
 });
 
+// send back index.html for all url except about/id
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../client/dist/index.html')));
 
 const port = 3003;
 

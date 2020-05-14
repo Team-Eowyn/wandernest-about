@@ -27,23 +27,25 @@ const RightColumn = styled.div`
 `;
 
 class Amenities extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      amenities: props.amenities
+    };
+  }
   render() {
+    var leftIcons = this.state.amenities.slice(0, 5);
+    var rightIcons = this.state.amenities.slice(5);
+
     return (
       <AmenitiesContainer>
         <Title>Property amenities</Title>
         <LeftColumn>
-          <Icon type='propertyAmenities' title='Free parking'/>
-          <Icon type='propertyAmenities' title='Free High Speed Internet (WiFi)'/>
-          <Icon type='propertyAmenities' title='Pool'/>
-          <Icon type='propertyAmenities' title='Fitness Center with Gym / Workout Room'/>
-          {/* <Icon title='Bar / lounge'/> */}
+          {leftIcons.map( (name) => <Icon type='propertyAmenities' name={name} key={name}/>)}
+          {/* need to add key to avoid error: Warning: Each child in a list should have a unique "key" prop. */}
         </LeftColumn>
         <RightColumn>
-          <Icon type='propertyAmenities' title='Bicycle rental'/>
-          <Icon type='propertyAmenities' title='Children Activities (Kid / Family Friendly)'/>
-          <Icon type='propertyAmenities' title='Business Center with Internet Access'/>
-          <Icon type='propertyAmenities' title='Parking'/>
-          {/* <Icon title='Wifi'/> */}
+          {rightIcons.map( (name) => <Icon type='propertyAmenities' name={name} key={name}/>)}
         </RightColumn>
         <MoreLink>Show more</MoreLink>
       </AmenitiesContainer>

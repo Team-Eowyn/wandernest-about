@@ -30,15 +30,21 @@ const MoreLink = styled.a`
 `;
 
 class Types extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      types: props.types
+    };
+  }
   render() {
     return (
       <TypesContainer>
         <Title>Room types</Title>
         <LeftColumn>
-          <Icon type='roomTypes' title='Suites'/>
+          <Icon type='roomTypes' name={this.state.types[0]}/>
         </LeftColumn>
         <RightColumn>
-          <Icon type='roomTypes' title='Ocean view'/>
+          <Icon type='roomTypes' name={this.state.types[1]}/>
         </RightColumn>
         <MoreLink>Show more room details</MoreLink>
       </TypesContainer>

@@ -10,7 +10,9 @@ const LinksContainer = styled.div`
 class HotelLinks extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      link: props.link
+    };
   }
 
   render() {

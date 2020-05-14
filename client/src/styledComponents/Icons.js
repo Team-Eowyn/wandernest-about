@@ -62,7 +62,7 @@ class Icon extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: props.title,
+      name: props.name,
       icon: propertyAmenities['Free parking'] //default value, later changed in findType
     };
   }

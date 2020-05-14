@@ -11,14 +11,14 @@ const DescriptionParagraph = styled.p`
 class Description extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      description: props.description
+    };
   }
 
   render() {
     return (
-      <DescriptionParagraph>
-        A brand new, all adult, luxury all suites hotel featuring 22 one-bedroom king bedded suites, with 11 individual plunge pools, a rooftop swimming pool and bar for all its guests, fitness center, 24 hour concierge services, and a beautiful secluded courtyard with water feature and plush tropical landscaping.
-      </DescriptionParagraph>
+    <DescriptionParagraph>{this.state.description}</DescriptionParagraph>
     );
   }
 }
