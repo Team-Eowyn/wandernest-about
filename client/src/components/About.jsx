@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import $ from 'jquery';
 
 //import child components:
 import Header from './Header.jsx';
@@ -40,24 +41,42 @@ const RightColumn = styled.div`
 class About extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      hotel: null
+    };
+  }
+
+  componentDidMount() {
+    var url = new URL(window.location.href);
+    var ID = url.searchParams.get('id');
+    $.get(`/about/${ID}`)
+      .then(response => {
+        this.setState({
+          hotel: response
+        });
+      })
+      .catch( err => res.status(400).send('Hotel not found') );
   }
 
   render() {
+    //wait for componentDidMount to update state before rendering html
+    if (this.state.hotel === null) {
+      return null;
+    }
     return (
       <AboutModule>
         <Header>About</Header>
         <LeftColumn>
-          <Review />
-          <Description />
-          <Pictures />
+          <Review rating={this.state.hotel.averageReview} total={this.state.hotel.numReviews}/>
+          <Description description={this.state.hotel.description}/>
+          <Pictures links={this.state.hotel.photos}/>
         </LeftColumn>
         <RightColumn>
-          <Amenities />
-          <Features />
-          <Types />
-          <GoodToKnow />
-          <HotelLinks />
+          <Amenities amenities={this.state.hotel.propertyAmenities}/>
+          <Features features={this.state.hotel.roomFeatures}/>
+          <Types types={this.state.hotel.roomTypes}/>
+          <GoodToKnow class={this.state.hotel.class}/>
+          <HotelLinks link={this.state.hotel.link}/>
         </RightColumn>
       </AboutModule>
     );

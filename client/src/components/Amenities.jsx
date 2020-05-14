@@ -17,35 +17,45 @@ const AmenitiesContainer = styled.div`
 const LeftColumn = styled.div`
   grid-column: 1 / 2;
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  row-gap: 10px;
 `;
 
 const RightColumn = styled.div`
   grid-column: 2 / 3;
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  row-gap: 10px;
 `;
 
 class Amenities extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      amenities: props.amenities,
+      clicked: false
+    };
+  }
+
+  clickHandler() {
+    this.setState({
+      clicked: !this.state.clicked
+    })
+  }
   render() {
+    var leftIcons = this.state.amenities.slice(0, 5);
+    var rightIcons = this.state.amenities.slice(5);
+
     return (
       <AmenitiesContainer>
         <Title>Property amenities</Title>
         <LeftColumn>
-          <Icon type='propertyAmenities' title='Free parking'/>
-          <Icon type='propertyAmenities' title='Free High Speed Internet (WiFi)'/>
-          <Icon type='propertyAmenities' title='Pool'/>
-          <Icon type='propertyAmenities' title='Fitness Center with Gym / Workout Room'/>
-          {/* <Icon title='Bar / lounge'/> */}
+          {leftIcons.map( (name, index) => <Icon key={name} type='propertyAmenities' name={name} clicked={this.state.clicked} index={index} />)}
+          {/* need to add key to avoid error: Warning: Each child in a list should have a unique "key" prop. */}
         </LeftColumn>
         <RightColumn>
-          <Icon type='propertyAmenities' title='Bicycle rental'/>
-          <Icon type='propertyAmenities' title='Children Activities (Kid / Family Friendly)'/>
-          <Icon type='propertyAmenities' title='Business Center with Internet Access'/>
-          <Icon type='propertyAmenities' title='Parking'/>
-          {/* <Icon title='Wifi'/> */}
+          {/* {rightIcons.map( (name) => <Icon type='propertyAmenities' name={name} key={name}/>)} */}
+          {rightIcons.map( (name, index) => <Icon key={name} type='propertyAmenities' name={name} clicked={this.state.clicked} index={index} />)}
         </RightColumn>
-        <MoreLink>Show more</MoreLink>
+        <MoreLink onClick={this.clickHandler.bind(this)} clicked={this.state.clicked}>Show more</MoreLink>
       </AmenitiesContainer>
     );
   }

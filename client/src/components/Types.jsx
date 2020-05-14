@@ -25,20 +25,31 @@ const RightColumn = styled.div`
 
 const MoreLink = styled.a`
   grid-row: 3 / 4;
+  padding: 10px 0 0;
   font-family: 'LatoBold';
   font-size: 14px;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `;
 
 class Types extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      types: props.types
+    };
+  }
   render() {
     return (
       <TypesContainer>
         <Title>Room types</Title>
         <LeftColumn>
-          <Icon type='roomTypes' title='Suites'/>
+          <Icon type='roomTypes' name={this.state.types[0]} index={0}/>
         </LeftColumn>
         <RightColumn>
-          <Icon type='roomTypes' title='Ocean view'/>
+          <Icon type='roomTypes' name={this.state.types[1]} index={0}/>
         </RightColumn>
         <MoreLink>Show more room details</MoreLink>
       </TypesContainer>

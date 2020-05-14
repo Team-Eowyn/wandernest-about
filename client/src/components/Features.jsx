@@ -15,28 +15,34 @@ const FeaturesContainer = styled.div`
 const LeftColumn = styled.div`
   grid-column: 1 / 2;
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  row-gap: 10px;
 `;
 
 const RightColumn = styled.div`
   grid-column: 2 / 3;
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  row-gap: 10px;
 `;
 
 class Features extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      features: props.features
+    };
+  }
   render() {
+    var leftIcons = this.state.features.slice(0, 3);
+    var rightIcons = this.state.features.slice(3);
     return (
       <FeaturesContainer>
         <Title>Room features</Title>
         <LeftColumn>
-          <Icon type='roomFeatures' title='Air conditioning'/>
-          <Icon type='roomFeatures' title='Housekeeping'/>
-          {/* <Icon type='roomFeatures' title='Private balcony'/> */}
+          {leftIcons.map( (name, index) => <Icon key={name} type='roomFeatures' name={name} clicked={this.state.clicked} index={index} />)}
         </LeftColumn>
         <RightColumn>
-          <Icon type='roomFeatures' title='Safe'/>
-          <Icon type='roomFeatures' title='Sofa'/>
+          {/* {rightIcons.map(name => <Icon type='roomFeatures' name={name} key ={name} />)} */}
+          {rightIcons.map( (name, index) => <Icon key={name} type='roomFeatures' name={name} clicked={this.state.clicked} index={index} />)}
         </RightColumn>
         <MoreLink>Show more</MoreLink>
       </FeaturesContainer>
