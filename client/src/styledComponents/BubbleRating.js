@@ -8,7 +8,8 @@ const RatingBox = styled.span`
 `;
 
 const RatingMeaning = styled.div`
-  font-family: 'LatoBold';
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
   font-size: 16px;
 `;
 const RatingBubbles = styled.span`
@@ -36,7 +37,8 @@ const RatingBubble = styled.span`
 //only works if content is black circle (can't be white/ medium or big)
 
 const RatingTotal = styled.span`
-  font-family: 'LatoRegular';
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   color: #4a4a4a;
   align-self: center;
@@ -52,11 +54,6 @@ class BubbleRating extends React.Component {
   }
 
   render() {
-//4.5,5: Excellent
-//3.5,4: Very Good
-//2.5,3: Average
-//1.5,2: Poor
-//1-:Terrible
     var rating = this.state.rating;
     var meaning;
     if (rating >= 4.5) {

@@ -26,7 +26,8 @@ const RightColumn = styled.div`
 const MoreLink = styled.a`
   grid-row: 3 / 4;
   padding: 10px 0 0;
-  font-family: 'LatoBold';
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
   font-size: 14px;
   &:hover {
     text-decoration: underline;

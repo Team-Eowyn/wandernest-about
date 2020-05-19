@@ -5,7 +5,8 @@ export default styled.div`
   grid-row: 1 / 2;
   justify-self: start;
   padding: 0 0 10px;
-  font-family: 'LatoBold';
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
   font-size: 16px;
   color: #2c2c2c;
 `;

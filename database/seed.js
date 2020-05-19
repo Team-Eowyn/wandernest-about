@@ -84,7 +84,7 @@ const pickPhotos = () => {
   const photos = [];
   const picked = [];
   const imgURL = 'https://wandernest-about.s3.us-east-2.amazonaws.com/';
-  while (picked.length < 5) {
+  while (picked.length < 7) {
     const i = Math.ceil(Math.random() * 100);
     if (!picked.includes(i)) {
       picked.push(i);

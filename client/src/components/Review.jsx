@@ -7,12 +7,13 @@ const ReviewContainer = styled.div`
   border-bottom: 1px solid #e0e0e0;
   display: grid;
   grid-template-columns: .25fr .75fr;
-  grid-template-rows: 1fr;
-  padding: 10px 0 18px;
+  padding: 10px 0 30px;
+  margin: 0;
 `;
 
 const Rating = styled.span`
-  font-family: 'LatoBold';
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
   font-size: 48px;
   position: relative;
   align-self: start;

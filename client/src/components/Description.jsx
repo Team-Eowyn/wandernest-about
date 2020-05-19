@@ -3,9 +3,12 @@ import styled from 'styled-components';
 
 const DescriptionParagraph = styled.p`
   grid-column: 1 / 2;
-  font-family: 'LatoRegular';
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   font-size: 16px;
   color: #4a4a4a;
+  padding: 15px 0 30px;
+  margin: 0;
 `;
 
 class Description extends React.Component {

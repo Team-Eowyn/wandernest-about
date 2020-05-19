@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Link = styled.a`
-  font-family: 'LatoRegular';
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   color: #4a4a4a;
   &:hover {

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import styled from 'styled-components';
 
-import GlobalFonts from './fonts/fonts.js';
+// import GlobalFonts from './fonts/fonts.js';
 import GlobalStyle from './styledComponents/GlobalStyle.js';
 import About from './components/About.jsx';
 
@@ -19,7 +19,7 @@ class App extends React.Component {
     return (
       <div>
         <GlobalStyle />
-        <GlobalFonts />
+        {/* <GlobalFonts /> */}
         <About />
       </div>
     );

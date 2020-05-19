@@ -13,7 +13,8 @@ const GTKContainer = styled.div`
 
 const Class = styled.div`
   font-size: 12px;
-  font-family: 'LatoBold';
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
 `;
 
 class GoodToKnow extends React.Component {

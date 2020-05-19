@@ -17,7 +17,7 @@ const AmenitiesContainer = styled.div`
 const LeftColumn = styled.div`
   grid-column: 1 / 2;
   display: grid;
-  row-gap: 10px;
+  row-gap: 15px;
 `;
 
 const RightColumn = styled.div`

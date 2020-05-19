@@ -115,7 +115,8 @@ class Icon extends React.Component {
       padding-right: 5px;
     `;
     const IconName = styled.span`
-      font-family: 'LatoRegular';
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
       font-size: 14px;
       color: #4a4a4a;
     `;

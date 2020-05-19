@@ -6,7 +6,7 @@ import $ from 'jquery';
 import Header from './Header.jsx';
 import Review from './Review.jsx';
 import Description from './Description.jsx';
-import Pictures from './Pictures.jsx';
+import Photos from './Photos.jsx';
 import Amenities from './Amenities.jsx';
 import Features from './Features.jsx';
 import Types from './Types.jsx';
@@ -27,9 +27,10 @@ const AboutModule = styled.div`
 // grid-row-gap: 15px;
 
 const LeftColumn = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  padding: 2px 0 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2px;
+  grid-row-gap: 10px;
 `;
 
 const RightColumn = styled.div`
@@ -69,7 +70,7 @@ class About extends React.Component {
         <LeftColumn>
           <Review rating={this.state.hotel.averageReview} total={this.state.hotel.numReviews}/>
           <Description description={this.state.hotel.description}/>
-          <Pictures links={this.state.hotel.photos}/>
+          <Photos links={this.state.hotel.photos}/>
         </LeftColumn>
         <RightColumn>
           <Amenities amenities={this.state.hotel.propertyAmenities}/>
